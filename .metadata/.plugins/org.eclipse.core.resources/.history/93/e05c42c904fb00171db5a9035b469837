@@ -1,0 +1,61 @@
+package com.amazonaws.lambda.giveaway;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.json.*;
+
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.*;
+import com.amazonaws.services.dynamodbv2.model.*;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class GiveawayHandler implements RequestHandler<String, String> {
+
+	@Override
+	public String handleRequest(String input, Context context) {
+		
+		String accessToken = getTokenFromUserId(input);
+		context.getLogger().log(input.toString());
+		
+
+		String postJson = getAllPosts(accessToken);
+		
+		return giveawayPosts(postJson);
+	}
+	
+	private String getTokenFromUserId(String userId) {
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+				.withRegion(Regions.US_EAST_1)
+				.build(); 
+		
+		Map<String, AttributeValue> key = new HashMap<String, AttributeValue>();
+		AttributeValue value = new AttributeValue();
+		key.put("username", ;
+		
+		GetItemRequest req = new GetItemRequest("auth_keys", key);
+		
+		client.getItem(req);
+		
+		return "";
+	}
+	
+	private String getAllPosts(String accessToken) {
+		return "";
+	}
+	
+	private String giveawayPosts(String allPostJson) {
+		JSONObject posts = new JSONObject(allPostJson);
+		
+		JSONArray postArrays = posts.getJSONArray("posts");
+
+        for (int i = 0; i < postArrays.length(); i++) {
+            String s = postArrays.getString(i);
+        }
+		
+		return "Hello";
+	}
+	
+}

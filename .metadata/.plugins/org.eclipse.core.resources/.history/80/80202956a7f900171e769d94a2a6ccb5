@@ -1,0 +1,51 @@
+package com.amazonaws.lambda.giveaway;
+
+import org.json.JSONObject;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class GiveawayHandler implements RequestHandler<String, String> {
+
+	@Override
+	public String handleRequest(String input, Context context) {
+		JSONObject json = new JSONObject(input.toString());
+		context.getLogger().log(input.toString());
+		String output = "Hello, " + input + "!";
+		return output;
+	}
+
+	class User {
+		private String name;
+		private String uid;
+		private String picUrl;
+		
+		public User(String name, String uid, String picUrl) {
+			this.name = name;
+			this.uid = uid;
+			this.picUrl = picUr;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getUid() {
+			return uid;
+		}
+		public void setUid(String uid) {
+			this.uid = uid;
+		}
+		public String getPicUrl() {
+			return picUrl;
+		}
+		public void setPicUrl(String picUrl) {
+			this.picUrl = picUrl;
+		}
+		
+		
+	}
+	
+}

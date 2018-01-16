@@ -1,0 +1,15 @@
+package test;
+
+import org.json.JSONObject;
+import org.junit.*;
+
+public class giveawayTests {
+	
+	@Test
+	public void testJsonInput() {
+		JSONObject json = new JSONObject("{\"name\":\"Keegan\"}");
+		
+		assert(json.getString("name"),equals("Keegan"))l
+	}
+	
+}

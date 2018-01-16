@@ -1,0 +1,44 @@
+package com.amazonaws.lambda.giveaway;
+
+import java.io.IOException;
+
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.amazonaws.services.lambda.runtime.Context;
+
+/**
+ * A simple test harness for locally invoking your Lambda function handler.
+ */
+public class GiveawayHandlerTest {
+
+    private static String input;
+    private static String expected = "6834641171.6efe64d.c187295250824e34907ea60956d2af9b";
+
+    @BeforeClass
+    public static void createInput() throws IOException {
+    		
+    		//Testing functionality with user: keeganbbjordan_dev
+        input = "6834641171";
+    }
+
+    private Context createContext() {
+        TestContext ctx = new TestContext();
+
+        // TODO: customize your context here if needed.
+        ctx.setFunctionName("Your Function Name");
+
+        return ctx;
+    }
+
+    @Test
+    public void testGiveawayHandler() {
+        GiveawayHandler handler = new GiveawayHandler();
+        Context ctx = createContext();
+
+        String output = handler.handleRequest(input, ctx);
+
+        Assert.assertEquals("");
+    }
+}

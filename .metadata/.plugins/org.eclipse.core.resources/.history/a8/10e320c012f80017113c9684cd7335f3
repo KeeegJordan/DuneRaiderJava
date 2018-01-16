@@ -1,0 +1,12 @@
+package giveaway;
+
+import java.util.function.BooleanSupplier;
+
+public class Comment {
+
+	public static BooleanSupplier isTagged(String poster, String user, String input) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

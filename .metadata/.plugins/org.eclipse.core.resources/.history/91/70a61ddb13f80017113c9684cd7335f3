@@ -1,0 +1,15 @@
+package giveaway;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import com.google.firebase;
+
+
+public class Database {
+
+    // Fetch the service account key JSON file contents
+    FileInputStream serviceAccount = new FileInputStream("path/to/serviceAccountCredentials.json");
+
+    
+}

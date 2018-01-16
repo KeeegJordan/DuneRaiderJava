@@ -1,0 +1,20 @@
+package com.amazonaws.lambda.giveaway;
+
+import org.json.JSONObject;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+import test.User;
+
+public class GiveawayHandler implements RequestHandler<User, String> {
+
+	@Override
+	public String handleRequest(String input, Context context) {
+		JSONObject json = new JSONObject(input.toString());
+		context.getLogger().log(input.toString());
+		String output = "Hello, " + input + "!";
+		return output;
+	}
+	
+}

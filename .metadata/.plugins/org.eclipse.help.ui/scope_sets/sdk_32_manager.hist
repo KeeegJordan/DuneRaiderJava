@@ -1,0 +1,4 @@
+#Fri Jan 12 19:50:40 PST 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=sdk manager

@@ -1,0 +1,12 @@
+package test;
+
+import org.junit.*;
+
+public class giveawayTests {
+	
+	@Test
+	public void testJsonInput() {
+		
+	}
+	
+}

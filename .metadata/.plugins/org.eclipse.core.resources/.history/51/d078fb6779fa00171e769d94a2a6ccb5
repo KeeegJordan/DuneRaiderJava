@@ -1,0 +1,35 @@
+package com.amazonaws.lambda.giveaway;
+
+import org.json.JSONObject;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class GiveawayHandler implements RequestHandler<String, String> {
+
+	@Override
+	public String handleRequest(String input, Context context) {
+		
+		String accessToken = getTokenFromUserId(input);
+		context.getLogger().log(input.toString());
+		
+
+		String postJson = getAllPosts(accessToken);
+		
+		return giveawayPosts(postJson);
+	}
+	
+	private String getTokenFromUserId(String userId) {
+		return "";
+	}
+	
+	private String getAllPosts(String accessToken) {
+		return "";
+	}
+	
+	private String giveawayPosts(String allPostJson) {
+		JSONObject posts = new JSONObject(allPostJson);
+		
+		return "";
+	}
+	
+}
